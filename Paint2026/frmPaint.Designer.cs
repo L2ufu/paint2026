@@ -84,37 +84,42 @@
             // 
             // toolStripDropDownButton3
             // 
+            toolStripDropDownButton3.AutoSize = false;
             toolStripDropDownButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
             toolStripDropDownButton3.DropDownItems.AddRange(new ToolStripItem[] { кругToolStripMenuItem, овалToolStripMenuItem, треугольникToolStripMenuItem, прямоугольникToolStripMenuItem });
             toolStripDropDownButton3.Image = (Image)resources.GetObject("toolStripDropDownButton3.Image");
             toolStripDropDownButton3.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            toolStripDropDownButton3.Size = new Size(29, 47);
+            toolStripDropDownButton3.Size = new Size(49, 77);
             toolStripDropDownButton3.Text = "toolStripDropDownButton3";
             // 
             // кругToolStripMenuItem
             // 
             кругToolStripMenuItem.Name = "кругToolStripMenuItem";
-            кругToolStripMenuItem.Size = new Size(163, 22);
+            кругToolStripMenuItem.Size = new Size(180, 22);
             кругToolStripMenuItem.Text = "Круг";
+            кругToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // овалToolStripMenuItem
             // 
             овалToolStripMenuItem.Name = "овалToolStripMenuItem";
-            овалToolStripMenuItem.Size = new Size(163, 22);
+            овалToolStripMenuItem.Size = new Size(180, 22);
             овалToolStripMenuItem.Text = "Овал";
+            овалToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // треугольникToolStripMenuItem
             // 
             треугольникToolStripMenuItem.Name = "треугольникToolStripMenuItem";
-            треугольникToolStripMenuItem.Size = new Size(163, 22);
+            треугольникToolStripMenuItem.Size = new Size(180, 22);
             треугольникToolStripMenuItem.Text = "Треугольник";
+            треугольникToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // прямоугольникToolStripMenuItem
             // 
             прямоугольникToolStripMenuItem.Name = "прямоугольникToolStripMenuItem";
-            прямоугольникToolStripMenuItem.Size = new Size(163, 22);
+            прямоугольникToolStripMenuItem.Size = new Size(180, 22);
             прямоугольникToolStripMenuItem.Text = "Прямоугольник";
+            прямоугольникToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // pctrBox
             // 

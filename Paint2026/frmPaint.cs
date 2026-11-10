@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-
 namespace PaintWinApp
 {
     public partial class Form1 : Form
@@ -18,9 +17,14 @@ namespace PaintWinApp
         public Color currentColor = Color.Black;
         public Rectangle selectionRect;
         public Pen myPen = new Pen(Color.Black, 3f);
+
         public Form1()
         {
             InitializeComponent();
+            bmp = new Bitmap(pctrBox.Width, pctrBox.Height);
+            pctrBox.Image = bmp;
+            g = Graphics.FromImage(bmp);
+            g.Clear(Color.White);
         }
 
         public void pctrBox_MouseDown(object sender, MouseEventArgs e)
@@ -28,34 +32,65 @@ namespace PaintWinApp
             if (e.Button == MouseButtons.Left)
             {
                 isDrawing = true;
+                startPoint = e.Location;
                 lastPoint = e.Location;
             }
         }
+
         public void pctrBox_MouseUP(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 isDrawing = false;
+
+                int x = Math.Min(startPoint.X, e.X);
+                int y = Math.Min(startPoint.Y, e.Y);
+                int width = Math.Abs(e.X - startPoint.X);
+                int height = Math.Abs(e.Y - startPoint.Y);
+
+                switch (currentTool)
+                {
+                    case "Прямоугольник":
+                        g.DrawRectangle(myPen, x, y, width, height);
+                        break;
+
+                    case "Овал":
+                        g.DrawEllipse(myPen, x, y, width, height);
+                        break;
+
+                    case "Круг":
+                        int diameter = Math.Max(width, height);
+                        g.DrawEllipse(myPen, x, y, diameter, diameter);
+                        break;
+
+                    case "Треугольник":
+                        Point topPoint = new Point(x + width / 2, y);
+                        Point leftBottom = new Point(x, y + height);
+                        Point rightBottom = new Point(x + width, y + height);
+
+                        Point[] trianglePoints = { topPoint, leftBottom, rightBottom };
+                        g.DrawPolygon(myPen, trianglePoints);
+                        break;
+                }
+                pctrBox.Invalidate();
             }
         }
+
         public void pctrBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrawing)
+            if (isDrawing && currentTool == "Brush")
             {
-                if (pctrBox.Image == null)
-                {
-                    pctrBox.Image = new Bitmap(pctrBox.Width, pctrBox.Height);
-                }
-
-                using (Graphics g = Graphics.FromImage(pctrBox.Image))
-                {
-                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    g.DrawLine(myPen, lastPoint, e.Location);
-                }
-
+                g.DrawLine(myPen, lastPoint, e.Location);
                 pctrBox.Invalidate();
                 lastPoint = e.Location;
             }
         }
+        public void shapeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            currentTool = item.Text;
+        }
+
+        
     }
 }
