@@ -1,85 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+
 namespace PaintWinApp
 {
     public partial class Form1 : Form
     {
+        public Bitmap bmp;
+        public Graphics g;
+        public bool isDrawing = false;
+        public Point startPoint;
+        public Point lastPoint;
+        public string currentTool = "Brush";
+        public Color currentColor = Color.Black;
+        public Rectangle selectionRect;
+        public Pen myPen = new Pen(Color.Black, 3f);
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void pnlRibbon_Paint(object sender, PaintEventArgs e)
+        public void pctrBox_MouseDown(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                isDrawing = true;
+                lastPoint = e.Location;
+            }
         }
-
-        private void label8_Click(object sender, EventArgs e)
+        public void pctrBox_MouseUP(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                isDrawing = false;
+            }
         }
-
-        private void label7_Click(object sender, EventArgs e)
+        public void pctrBox_MouseMove(object sender, MouseEventArgs e)
         {
+            if (isDrawing)
+            {
+                if (pctrBox.Image == null)
+                {
+                    pctrBox.Image = new Bitmap(pctrBox.Width, pctrBox.Height);
+                }
 
-        }
+                using (Graphics g = Graphics.FromImage(pctrBox.Image))
+                {
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    g.DrawLine(myPen, lastPoint, e.Location);
+                }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlRibbon_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStrip3_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStrip4_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStrip4_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripDropDownButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+                pctrBox.Invalidate();
+                lastPoint = e.Location;
+            }
         }
     }
 }
