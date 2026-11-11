@@ -41,16 +41,12 @@
             editToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
             pnlRibbon = new Panel();
+            toolStrip4 = new ToolStrip();
+            toolStripButton2 = new ToolStripButton();
             label3 = new Label();
             label1 = new Label();
             toolStrip5 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
-            toolStrip4 = new ToolStrip();
-            toolStripDropDownButton1 = new ToolStripDropDownButton();
-            черныйToolStripMenuItem = new ToolStripMenuItem();
-            красныйToolStripMenuItem = new ToolStripMenuItem();
-            зеленыйToolStripMenuItem = new ToolStripMenuItem();
-            синийToolStripMenuItem = new ToolStripMenuItem();
             toolStrip3 = new ToolStrip();
             toolStripButton3 = new ToolStripButton();
             toolStrip1 = new ToolStrip();
@@ -68,8 +64,8 @@
             ((System.ComponentModel.ISupportInitialize)pctrBox).BeginInit();
             mnuStrip.SuspendLayout();
             pnlRibbon.SuspendLayout();
-            toolStrip5.SuspendLayout();
             toolStrip4.SuspendLayout();
+            toolStrip5.SuspendLayout();
             toolStrip3.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -169,11 +165,11 @@
             // pnlRibbon
             // 
             pnlRibbon.BackColor = SystemColors.InactiveCaption;
+            pnlRibbon.Controls.Add(toolStrip4);
             pnlRibbon.Controls.Add(label3);
             pnlRibbon.Controls.Add(label1);
             pnlRibbon.Controls.Add(toolStrip5);
             pnlRibbon.Controls.Add(toolStrip2);
-            pnlRibbon.Controls.Add(toolStrip4);
             pnlRibbon.Controls.Add(toolStrip3);
             pnlRibbon.Controls.Add(toolStrip1);
             pnlRibbon.Controls.Add(panel1);
@@ -185,6 +181,30 @@
             pnlRibbon.Name = "pnlRibbon";
             pnlRibbon.Size = new Size(1184, 63);
             pnlRibbon.TabIndex = 2;
+            // 
+            // toolStrip4
+            // 
+            toolStrip4.AutoSize = false;
+            toolStrip4.Dock = DockStyle.None;
+            toolStrip4.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip4.ImageScalingSize = new Size(64, 64);
+            toolStrip4.Items.AddRange(new ToolStripItem[] { toolStripButton2 });
+            toolStrip4.Location = new Point(280, 0);
+            toolStrip4.Name = "toolStrip4";
+            toolStrip4.Size = new Size(71, 48);
+            toolStrip4.TabIndex = 5;
+            toolStrip4.Text = "toolStrip4";
+            toolStrip4.ItemClicked += toolStrip4_ItemClicked;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.AutoSize = false;
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(70, 45);
+            toolStripButton2.Text = "toolStripButton3";
             // 
             // label3
             // 
@@ -225,54 +245,6 @@
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new Size(70, 45);
             toolStripButton1.Text = "toolStripButton3";
-            // 
-            // toolStrip4
-            // 
-            toolStrip4.AutoSize = false;
-            toolStrip4.Dock = DockStyle.None;
-            toolStrip4.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip4.ImageScalingSize = new Size(48, 48);
-            toolStrip4.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1 });
-            toolStrip4.Location = new Point(287, 2);
-            toolStrip4.Name = "toolStrip4";
-            toolStrip4.Size = new Size(64, 50);
-            toolStrip4.TabIndex = 3;
-            toolStrip4.Text = "toolStrip4";
-            // 
-            // toolStripDropDownButton1
-            // 
-            toolStripDropDownButton1.AutoSize = false;
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { черныйToolStripMenuItem, красныйToolStripMenuItem, зеленыйToolStripMenuItem, синийToolStripMenuItem });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
-            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(60, 47);
-            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // черныйToolStripMenuItem
-            // 
-            черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
-            черныйToolStripMenuItem.Size = new Size(123, 22);
-            черныйToolStripMenuItem.Text = "Черный";
-            // 
-            // красныйToolStripMenuItem
-            // 
-            красныйToolStripMenuItem.Name = "красныйToolStripMenuItem";
-            красныйToolStripMenuItem.Size = new Size(123, 22);
-            красныйToolStripMenuItem.Text = "Красный";
-            // 
-            // зеленыйToolStripMenuItem
-            // 
-            зеленыйToolStripMenuItem.Name = "зеленыйToolStripMenuItem";
-            зеленыйToolStripMenuItem.Size = new Size(123, 22);
-            зеленыйToolStripMenuItem.Text = "Зеленый";
-            // 
-            // синийToolStripMenuItem
-            // 
-            синийToolStripMenuItem.Name = "синийToolStripMenuItem";
-            синийToolStripMenuItem.Size = new Size(123, 22);
-            синийToolStripMenuItem.Text = "Синий";
             // 
             // toolStrip3
             // 
@@ -325,26 +297,30 @@
             // оченьМаленькийToolStripMenuItem
             // 
             оченьМаленькийToolStripMenuItem.Name = "оченьМаленькийToolStripMenuItem";
-            оченьМаленькийToolStripMenuItem.Size = new Size(180, 22);
-            оченьМаленькийToolStripMenuItem.Text = "Очень маленький";
+            оченьМаленькийToolStripMenuItem.Size = new Size(137, 22);
+            оченьМаленькийToolStripMenuItem.Text = "Микро";
+            оченьМаленькийToolStripMenuItem.Click += toolStripDropDownButton2_Click;
             // 
             // маленькийToolStripMenuItem
             // 
             маленькийToolStripMenuItem.Name = "маленькийToolStripMenuItem";
-            маленькийToolStripMenuItem.Size = new Size(180, 22);
+            маленькийToolStripMenuItem.Size = new Size(137, 22);
             маленькийToolStripMenuItem.Text = "Маленький";
+            маленькийToolStripMenuItem.Click += toolStripDropDownButton2_Click;
             // 
             // среднийToolStripMenuItem
             // 
             среднийToolStripMenuItem.Name = "среднийToolStripMenuItem";
-            среднийToolStripMenuItem.Size = new Size(180, 22);
+            среднийToolStripMenuItem.Size = new Size(137, 22);
             среднийToolStripMenuItem.Text = "Средний";
+            среднийToolStripMenuItem.Click += toolStripDropDownButton2_Click;
             // 
             // большойToolStripMenuItem
             // 
             большойToolStripMenuItem.Name = "большойToolStripMenuItem";
-            большойToolStripMenuItem.Size = new Size(180, 22);
+            большойToolStripMenuItem.Size = new Size(137, 22);
             большойToolStripMenuItem.Text = "Большой";
+            большойToolStripMenuItem.Click += toolStripDropDownButton2_Click;
             // 
             // panel1
             // 
@@ -396,10 +372,10 @@
             mnuStrip.ResumeLayout(false);
             mnuStrip.PerformLayout();
             pnlRibbon.ResumeLayout(false);
-            toolStrip5.ResumeLayout(false);
-            toolStrip5.PerformLayout();
             toolStrip4.ResumeLayout(false);
             toolStrip4.PerformLayout();
+            toolStrip5.ResumeLayout(false);
+            toolStrip5.PerformLayout();
             toolStrip3.ResumeLayout(false);
             toolStrip3.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -424,12 +400,6 @@
         private ToolStrip toolStrip1;
         private ToolStrip toolStrip3;
         private ToolStripButton toolStripButton3;
-        private ToolStrip toolStrip4;
-        private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripMenuItem черныйToolStripMenuItem;
-        private ToolStripMenuItem красныйToolStripMenuItem;
-        private ToolStripMenuItem зеленыйToolStripMenuItem;
-        private ToolStripMenuItem синийToolStripMenuItem;
         private ToolStripDropDownButton toolStripDropDownButton2;
         private ToolStripMenuItem оченьМаленькийToolStripMenuItem;
         private ToolStripMenuItem маленькийToolStripMenuItem;
@@ -444,5 +414,7 @@
         private ToolStripButton toolStripButton1;
         private Label label1;
         private Label label3;
+        private ToolStrip toolStrip4;
+        private ToolStripButton toolStripButton2;
     }
 }

@@ -83,7 +83,10 @@ namespace PaintWinApp
                 g.DrawLine(myPen, lastPoint, e.Location);
                 pctrBox.Invalidate();
                 lastPoint = e.Location;
+                myPen.StartCap = myPen.EndCap = LineCap.Round;
+
             }
+
 
         }
         public void shapeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,6 +109,42 @@ namespace PaintWinApp
             myPen.Color = Color.Black;
         }
 
-        
+        private void toolStripDropDownButton2_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            switch (item.Text)
+            {
+                case "Микро":
+                    myPen.Width = 1f;
+                    break;
+
+                case "Маленький":
+                    myPen.Width = 4f;
+                    break;
+
+                case "Средний":
+                    myPen.Width = 8f;
+                    break;
+
+                case "Большой":
+                    myPen.Width = 15f;
+                    break;
+
+            }
+        }
+
+        private void toolStrip4_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            using (ColorDialog ColorDialog = new ColorDialog()) 
+            {
+                ColorDialog.FullOpen = true;
+                ColorDialog.Color = currentColor;
+                if(ColorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    currentColor = ColorDialog.Color;
+                    myPen.Color = currentColor;
+                }
+            }
+        }
     }
 }
