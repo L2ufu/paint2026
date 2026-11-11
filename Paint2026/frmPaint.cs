@@ -84,11 +84,26 @@ namespace PaintWinApp
                 pctrBox.Invalidate();
                 lastPoint = e.Location;
             }
+
         }
         public void shapeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
             currentTool = item.Text;
+
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            myPen.Color = Color.White;
+            myPen.Width = 15f;
+        }
+
+        private void toolStrip5_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            currentTool = "Brush";
+            myPen.Width = 3f;
+            myPen.Color = Color.Black;
         }
 
         

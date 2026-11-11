@@ -41,6 +41,10 @@
             editToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
             pnlRibbon = new Panel();
+            label3 = new Label();
+            label1 = new Label();
+            toolStrip5 = new ToolStrip();
+            toolStripButton1 = new ToolStripButton();
             toolStrip4 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             черныйToolStripMenuItem = new ToolStripMenuItem();
@@ -64,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)pctrBox).BeginInit();
             mnuStrip.SuspendLayout();
             pnlRibbon.SuspendLayout();
+            toolStrip5.SuspendLayout();
             toolStrip4.SuspendLayout();
             toolStrip3.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -72,7 +77,7 @@
             // toolStrip2
             // 
             toolStrip2.AutoSize = false;
-            toolStrip2.BackColor = SystemColors.ScrollBar;
+            toolStrip2.BackColor = SystemColors.ButtonHighlight;
             toolStrip2.Dock = DockStyle.None;
             toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton3 });
@@ -96,28 +101,28 @@
             // кругToolStripMenuItem
             // 
             кругToolStripMenuItem.Name = "кругToolStripMenuItem";
-            кругToolStripMenuItem.Size = new Size(180, 22);
+            кругToolStripMenuItem.Size = new Size(163, 22);
             кругToolStripMenuItem.Text = "Круг";
             кругToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // овалToolStripMenuItem
             // 
             овалToolStripMenuItem.Name = "овалToolStripMenuItem";
-            овалToolStripMenuItem.Size = new Size(180, 22);
+            овалToolStripMenuItem.Size = new Size(163, 22);
             овалToolStripMenuItem.Text = "Овал";
             овалToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // треугольникToolStripMenuItem
             // 
             треугольникToolStripMenuItem.Name = "треугольникToolStripMenuItem";
-            треугольникToolStripMenuItem.Size = new Size(180, 22);
+            треугольникToolStripMenuItem.Size = new Size(163, 22);
             треугольникToolStripMenuItem.Text = "Треугольник";
             треугольникToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
             // прямоугольникToolStripMenuItem
             // 
             прямоугольникToolStripMenuItem.Name = "прямоугольникToolStripMenuItem";
-            прямоугольникToolStripMenuItem.Size = new Size(180, 22);
+            прямоугольникToolStripMenuItem.Size = new Size(163, 22);
             прямоугольникToolStripMenuItem.Text = "Прямоугольник";
             прямоугольникToolStripMenuItem.Click += shapeToolStripMenuItem_Click;
             // 
@@ -164,6 +169,9 @@
             // pnlRibbon
             // 
             pnlRibbon.BackColor = SystemColors.InactiveCaption;
+            pnlRibbon.Controls.Add(label3);
+            pnlRibbon.Controls.Add(label1);
+            pnlRibbon.Controls.Add(toolStrip5);
             pnlRibbon.Controls.Add(toolStrip2);
             pnlRibbon.Controls.Add(toolStrip4);
             pnlRibbon.Controls.Add(toolStrip3);
@@ -177,6 +185,46 @@
             pnlRibbon.Name = "pnlRibbon";
             pnlRibbon.Size = new Size(1184, 63);
             pnlRibbon.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.Location = new Point(432, 48);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Фигуры";
+            // 
+            // label1
+            // 
+            label1.Location = new Point(556, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(71, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Кисть";
+            // 
+            // toolStrip5
+            // 
+            toolStrip5.AutoSize = false;
+            toolStrip5.Dock = DockStyle.None;
+            toolStrip5.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip5.ImageScalingSize = new Size(64, 64);
+            toolStrip5.Items.AddRange(new ToolStripItem[] { toolStripButton1 });
+            toolStrip5.Location = new Point(556, 4);
+            toolStrip5.Name = "toolStrip5";
+            toolStrip5.Size = new Size(71, 48);
+            toolStrip5.TabIndex = 4;
+            toolStrip5.Text = "toolStrip5";
+            toolStrip5.ItemClicked += toolStrip5_ItemClicked;
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.AutoSize = false;
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(70, 45);
+            toolStripButton1.Text = "toolStripButton3";
             // 
             // toolStrip4
             // 
@@ -248,6 +296,7 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(70, 45);
             toolStripButton3.Text = "toolStripButton3";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // toolStrip1
             // 
@@ -276,25 +325,25 @@
             // оченьМаленькийToolStripMenuItem
             // 
             оченьМаленькийToolStripMenuItem.Name = "оченьМаленькийToolStripMenuItem";
-            оченьМаленькийToolStripMenuItem.Size = new Size(173, 22);
+            оченьМаленькийToolStripMenuItem.Size = new Size(180, 22);
             оченьМаленькийToolStripMenuItem.Text = "Очень маленький";
             // 
             // маленькийToolStripMenuItem
             // 
             маленькийToolStripMenuItem.Name = "маленькийToolStripMenuItem";
-            маленькийToolStripMenuItem.Size = new Size(173, 22);
+            маленькийToolStripMenuItem.Size = new Size(180, 22);
             маленькийToolStripMenuItem.Text = "Маленький";
             // 
             // среднийToolStripMenuItem
             // 
             среднийToolStripMenuItem.Name = "среднийToolStripMenuItem";
-            среднийToolStripMenuItem.Size = new Size(173, 22);
+            среднийToolStripMenuItem.Size = new Size(180, 22);
             среднийToolStripMenuItem.Text = "Средний";
             // 
             // большойToolStripMenuItem
             // 
             большойToolStripMenuItem.Name = "большойToolStripMenuItem";
-            большойToolStripMenuItem.Size = new Size(173, 22);
+            большойToolStripMenuItem.Size = new Size(180, 22);
             большойToolStripMenuItem.Text = "Большой";
             // 
             // panel1
@@ -333,7 +382,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ScrollBar;
+            BackColor = Color.LightGray;
             ClientSize = new Size(1184, 646);
             Controls.Add(pnlRibbon);
             Controls.Add(pctrBox);
@@ -347,6 +396,8 @@
             mnuStrip.ResumeLayout(false);
             mnuStrip.PerformLayout();
             pnlRibbon.ResumeLayout(false);
+            toolStrip5.ResumeLayout(false);
+            toolStrip5.PerformLayout();
             toolStrip4.ResumeLayout(false);
             toolStrip4.PerformLayout();
             toolStrip3.ResumeLayout(false);
@@ -389,5 +440,9 @@
         private ToolStripMenuItem овалToolStripMenuItem;
         private ToolStripMenuItem треугольникToolStripMenuItem;
         private ToolStripMenuItem прямоугольникToolStripMenuItem;
+        private ToolStrip toolStrip5;
+        private ToolStripButton toolStripButton1;
+        private Label label1;
+        private Label label3;
     }
 }
