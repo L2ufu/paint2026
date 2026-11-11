@@ -59,6 +59,9 @@
             label5 = new Label();
             label4 = new Label();
             label2 = new Label();
+            toolStrip6 = new ToolStrip();
+            toolStripButton4 = new ToolStripButton();
+            label6 = new Label();
             toolStrip2 = new ToolStrip();
             toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pctrBox).BeginInit();
@@ -68,6 +71,7 @@
             toolStrip5.SuspendLayout();
             toolStrip3.SuspendLayout();
             toolStrip1.SuspendLayout();
+            toolStrip6.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip2
@@ -77,7 +81,7 @@
             toolStrip2.Dock = DockStyle.None;
             toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip2.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton3 });
-            toolStrip2.Location = new Point(432, 2);
+            toolStrip2.Location = new Point(395, 0);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.Size = new Size(51, 50);
             toolStrip2.TabIndex = 3;
@@ -165,6 +169,8 @@
             // pnlRibbon
             // 
             pnlRibbon.BackColor = SystemColors.InactiveCaption;
+            pnlRibbon.Controls.Add(label6);
+            pnlRibbon.Controls.Add(toolStrip6);
             pnlRibbon.Controls.Add(toolStrip4);
             pnlRibbon.Controls.Add(label3);
             pnlRibbon.Controls.Add(label1);
@@ -208,7 +214,7 @@
             // 
             // label3
             // 
-            label3.Location = new Point(432, 48);
+            label3.Location = new Point(395, 46);
             label3.Name = "label3";
             label3.Size = new Size(71, 15);
             label3.TabIndex = 9;
@@ -216,7 +222,7 @@
             // 
             // label1
             // 
-            label1.Location = new Point(556, 48);
+            label1.Location = new Point(489, 46);
             label1.Name = "label1";
             label1.Size = new Size(71, 15);
             label1.TabIndex = 8;
@@ -229,7 +235,7 @@
             toolStrip5.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip5.ImageScalingSize = new Size(64, 64);
             toolStrip5.Items.AddRange(new ToolStripItem[] { toolStripButton1 });
-            toolStrip5.Location = new Point(556, 4);
+            toolStrip5.Location = new Point(489, 2);
             toolStrip5.Name = "toolStrip5";
             toolStrip5.Size = new Size(71, 48);
             toolStrip5.TabIndex = 4;
@@ -354,6 +360,38 @@
             label2.TabIndex = 1;
             label2.Text = "Размер";
             // 
+            // toolStrip6
+            // 
+            toolStrip6.AutoSize = false;
+            toolStrip6.Dock = DockStyle.None;
+            toolStrip6.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip6.ImageScalingSize = new Size(64, 64);
+            toolStrip6.Items.AddRange(new ToolStripItem[] { toolStripButton4 });
+            toolStrip6.Location = new Point(597, 0);
+            toolStrip6.Name = "toolStrip6";
+            toolStrip6.Size = new Size(71, 48);
+            toolStrip6.TabIndex = 6;
+            toolStrip6.Text = "toolStrip6";
+            toolStrip6.ItemClicked += toolStrip6_ItemClicked;
+            // 
+            // toolStripButton4
+            // 
+            toolStripButton4.AutoSize = false;
+            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new Size(70, 45);
+            toolStripButton4.Text = "toolStripButton3";
+            // 
+            // label6
+            // 
+            label6.Location = new Point(597, 48);
+            label6.Name = "label6";
+            label6.Size = new Size(71, 15);
+            label6.TabIndex = 10;
+            label6.Text = "Заливка";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -380,6 +418,8 @@
             toolStrip3.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            toolStrip6.ResumeLayout(false);
+            toolStrip6.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
@@ -416,5 +456,8 @@
         private Label label3;
         private ToolStrip toolStrip4;
         private ToolStripButton toolStripButton2;
+        private Label label6;
+        private ToolStrip toolStrip6;
+        private ToolStripButton toolStripButton4;
     }
 }

@@ -17,6 +17,8 @@ namespace PaintWinApp
         public Color currentColor = Color.Black;
         public Rectangle selectionRect;
         public Pen myPen = new Pen(Color.Black, 3f);
+        public bool isFillig = false;
+        public SolidBrush myBrush = new SolidBrush(Color.Azure);
 
         public Form1()
         {
@@ -51,24 +53,29 @@ namespace PaintWinApp
                 switch (currentTool)
                 {
                     case "Прямоугольник":
+                        if (isFillig) g.FillRectangle(myBrush, x, y, width, height);
                         g.DrawRectangle(myPen, x, y, width, height);
                         break;
 
                     case "Овал":
+                        if (isFillig) g.FillEllipse(myBrush, x, y, width, height);
                         g.DrawEllipse(myPen, x, y, width, height);
                         break;
 
                     case "Круг":
                         int diameter = Math.Max(width, height);
+                        if (isFillig) g.FillEllipse(myBrush, x, y, diameter, diameter);
                         g.DrawEllipse(myPen, x, y, diameter, diameter);
                         break;
 
                     case "Треугольник":
+                       
                         Point topPoint = new Point(x + width / 2, y);
                         Point leftBottom = new Point(x, y + height);
                         Point rightBottom = new Point(x + width, y + height);
 
                         Point[] trianglePoints = { topPoint, leftBottom, rightBottom };
+                        if (isFillig) g.FillPolygon(myBrush, trianglePoints);
                         g.DrawPolygon(myPen, trianglePoints);
                         break;
                 }
@@ -132,17 +139,29 @@ namespace PaintWinApp
 
             }
         }
-
         private void toolStrip4_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            using (ColorDialog ColorDialog = new ColorDialog()) 
+            using (ColorDialog ColorDialog = new ColorDialog())
             {
                 ColorDialog.FullOpen = true;
                 ColorDialog.Color = currentColor;
-                if(ColorDialog.ShowDialog() == DialogResult.OK)
+                if (ColorDialog.ShowDialog() == DialogResult.OK)
                 {
                     currentColor = ColorDialog.Color;
                     myPen.Color = currentColor;
+                }
+            }
+        }
+
+        private void toolStrip6_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            using (ColorDialog ColorDialog = new ColorDialog())
+            {
+                ColorDialog.FullOpen = true;
+                if (ColorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    myBrush.Color = currentColor;
+                    isFillig = true;
                 }
             }
         }
